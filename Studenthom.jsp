@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.io.*" %>
+    <%@ page import="java.sql.*" %>
+<%@ page import="javax.servlet.*" %>
+<%@ page import="javax.servlet.http.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Complaint Form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style type="text/css">
+		#div1{
+			width: 750px;
+			height: 700px;
+			margin-left: 400px;
+			background-color:white; 
+			position: relative;
+			margin-top:-1100px;
+			border:1px solid brown;
+			border-radius: 100px;
+		}
+
+		#div2{
+			position: relative;
+			width: 300px;
+			height:478px;
+		}
+		a{
+				background-color: white;color:black;border-radius: 100px;border:1px solid black;text-decoration: none;padding-top:10px;padding-left: 40px;padding-right:40px;padding-bottom:10px;margin-left: 90px;margin-top: 260px;position: absolute;
+			}
+		a:hover{
+			background-color:#B73B13;
+			color: white;
+			text-decoration: none;
+			border:1px solid white;
+		}
+		table, th, td {
+ 			 border: 1px solid #B73B13;
+			 padding: 15px;
+  			 text-align: centre;
+	        }
+	        table{
+	        width:100%;
+	        }
+
+	</style>
+</head>
+<body>
+<img src="books.jpg" alt="pencil" style="width:100%;height:1200px;background-repeat: no-repeat;">
+	<div id="div1">
+
+		
+			<form action="" method="post" style="margin-left: 100px;margin-right:100px;margin-top:100px;position: relative;margin-top: 10px;">
+				
+				<br><br>
+				
+	
+<% 
+Integer i=0;
+try
+		{
+			Class.forName("oracle.jdbc.OracleDriver");
+			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","gpsid");
+			Statement st=conn.createStatement();
+			String userid=(String)session.getAttribute("user");
+			 ResultSet rs=st.executeQuery("select details from table1 where email='"+userid+"'");
+			 %>
+			 <h1 style="font-family: cursive;color:#B73B13">WELCOME <%out.print(session.getAttribute("user"));%></h1>
+			 <table>
+
+				<tr>
+						<th>Grievance</th>
+			 
+			 <%
+			 while(rs.next())
+			 {
+			 %>
+			 
+			 	<tr>
+			 		<td><%out.print(rs.getString(1)); %></td>
+			 		
+			 				 		
+			 	</tr>	
+			 
+			 
+			 <%
+			 }
+			 %>
+			 
+			 </table> 
+			 
+			 
+			 <%
+		}
+
+		catch(Exception e)
+		{
+			System.out.print(e);
+			e.printStackTrace();
+		}%>
+
+				<a href="complaintform.html" ><h3>Post Complaint</h3></a><br><br><br><br>
+				<a href="viewtable.jsp" ><h3>View Grievance</h3></a>
+			</form>		
+	</div>
+
+
+</body>
+</html>

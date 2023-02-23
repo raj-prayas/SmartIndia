@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>StudentSignUp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style type="text/css">
+		#div1{
+			width: 750px;
+			height: 1000px;
+			margin-left: 300px;
+			background-color:white; 
+			position: relative;
+			margin-top:-1000px;
+			border:1px solid brown;
+			border-radius: 100px;
+		}
+
+		#div2{
+			position: relative;
+			width: 300px;
+			height:1000px;
+		}
+		a{
+				background-color: white;color:black;border-radius: 100px;border:1px solid black;text-decoration: none;padding-top:10px;padding-left: 40px;padding-right:40px;padding-bottom:10px;margin-left: 90px;margin-top: 260px;position: absolute;
+			}
+		a:hover{
+			background-color:#B73B13;
+			color: white;
+			text-decoration: none;
+			border:1px solid white;
+		}
+	</style>
+	<script>
+        function validateForm(){  
+            var name=document.myForm.name.value;  
+            var uName=document.myForm.university.value;  
+  
+            if (name==null || name==""){  
+            alert("Name can't be blank");  
+            return false;  
+            }else if(uName==null || uName==""){  
+             alert("University name can not be blank");  
+             return false;  
+            }  
+           }  	
+        </script>
+</head>
+<body>
+	<img src="books.jpg" alt="pencil" style="width:100%;height:1200px;background-repeat: no-repeat;">
+	<div id="div1">
+		<div id="div2" style="background-color:#B73B13;border-top-left-radius: 100px;border-bottom-left-radius: 100px;">
+			<h1 style="margin-top:500px;margin-left:50px;position:absolute;font-family: cursive;color:white;">Welcome Student</h1>
+
+		</div>
+
+
+		
+			<form name="myForm" action="InsertStudent.jsp" onsubmit="return validateForm()"  method="post" style="margin-left: 400px;margin-right:100px;margin-top:100px;position: relative;margin-top: -950px;">
+				<h1 style="font-family: cursive;color:#B73B13">STUDENT SIGNUP</h1>
+				<br><br>
+				<div class="form-group" >
+					<label for="exampleInputName" style="color: black;">Name</label>
+					<input type="text" class="form-control" id="exampleInputName"  placeholder="Enter Name" name="name"required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputUniversity" style="color: black;">University Name</label>
+					<input type="text" class="form-control" id="exampleInputUniversity"  placeholder="Enter University Name" name="university"required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputCollege" style="color: black;">College Name</label>
+					<input type="text" class="form-control" id="exampleInputName"  placeholder="Enter College Name" name="clg_name"required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputBranch" style="color: black;">Branch</label>
+					<input type="text" class="form-control" id="exampleInputBranch"  placeholder="Enter Branch" name="branch"required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputReg" style="color: black;">Registration number</label required>
+					<input type="number" class="form-control" id="exampleInputReg"  placeholder="Enter Registration number" name="regd_no" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputDOB" style="color: black;">DOB</label required>
+					<input type="date" class="form-control" id="exampleInputDOB" name="date" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1" style="color: black;">Email address</label required>
+					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter email" name="email" required>
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1" style="color:black;">Password</label required>
+					<input type="password" class="form-control" id="exampleInputPassword1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" name="password" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputContact" style="color: black;">Contact Number</label required>
+					<input type="number" class="form-control" id="exampleInputContact" name="contact" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputGender" style="color: black;">Gender</label required>
+					<input type="radio" class="form-control" name="gender" id="exampleInputContact" value="male">Male <input type="radio" class="form-control" name="gender" id="exampleInputContact" value="female">Female <input type="radio" class="form-control" name="gender" id="exampleInputContact" value="others">Others
+				</div>
+				
+				
+				<button type="submit" class="btn btn-primary" style="margin-left: 100px;margin-top: 30px;">SIGN UP</button required>
+
+			</form>
+		
+	</div>
+</body>
+</html>
